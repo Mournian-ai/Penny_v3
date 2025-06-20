@@ -1,0 +1,78 @@
+# ========== PYTHON ==========
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.log
+.venv/
+venv/
+env/
+ENV/
+pip-log.txt
+coverage/
+*.cover
+*.pyc
+*.pyo
+.mypy_cache/
+.pytest_cache/
+.dmypy.json
+.tox/
+.nox/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# PyInstaller
+*.spec
+
+# dotenv
+.env
+.env.*
+
+# ========== UNITY ==========
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.DS_Store
+*.apk
+*.aab
+
+# Auto-generated VS/JetBrains project files
+.vscode/
+.idea/
+
+# Unity Asset Store tools
+Assets/AssetStoreTools*
+
+# Crash and debug files
+sysinfo.txt
+
+# ========== GENERAL ==========
+*.bak
+*.tmp
+*.swp
+*.lock
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
