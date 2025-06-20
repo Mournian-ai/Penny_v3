@@ -1,21 +1,20 @@
 from services.event_bus import EventBus
-from services.openai_service import query_openai
 from services.tts_service import speak
+from services.openai_service import query_openai
 from services.prompt_builder import build_prompt, SYSTEM_PROMPT
 
 def init_message_router():
     EventBus.subscribe("transcription", on_transcription)
     EventBus.subscribe("twitch_event", on_twitch_event)
 
-async def on_transcription(data: dict):
-    text = data.get("text", "")
-    speaker = data.get("username", "someone")
+async def on_transcription(data):
+    text = data.get("text", "") if isinstance(data, dict) else data
+    speaker = data.get("username", "someone") if isinstance(data, dict) else "Mournian"
 
     if "penny" in text.lower():
         prompt, history = build_prompt(speaker, text)
         reply = await query_openai(prompt, history=history, system_prompt=SYSTEM_PROMPT)
-        await speak(reply, mood="neutral") 
-
+        await speak(reply, mood="curious")
 
 async def on_twitch_event(event):
     type = event.get("type")

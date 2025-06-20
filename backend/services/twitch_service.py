@@ -1,22 +1,17 @@
 import aiohttp
 import asyncio
-import os
 from twitchio.ext import commands
 from services.event_bus import EventBus
 from config import settings
 
 async def refresh_oauth_token():
-    """
-    Refreshes the Twitch OAuth token using the refresh token from .env.
-    Returns the new access token or None if failed.
-    """
     print("[Twitch] Refreshing OAuth token...")
     url = "https://id.twitch.tv/oauth2/token"
     params = {
         "grant_type": "refresh_token",
-        "refresh_token": os.getenv("TWITCH_REFRESH_TOKEN"),
-        "client_id": os.getenv("TWITCH_CLIENT_ID"),
-        "client_secret": os.getenv("TWITCH_CLIENT_SECRET")
+        "refresh_token": settings.TWITCH_REFRESH_TOKEN,
+        "client_id": settings.TWITCH_CLIENT_ID,
+        "client_secret": settings.TWITCH_CLIENT_SECRET
     }
 
     async with aiohttp.ClientSession() as session:

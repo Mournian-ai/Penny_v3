@@ -7,6 +7,8 @@ PIPER_MODEL = "/home/mournian/piper/voices/glados.onnx"  # change path if needed
 
 async def speak(text: str, mood: str = "neutral"):
     print(f"[TTS] Speaking: {text} (mood: {mood})")
+    from services.prompt_builder import conversation_history
+    conversation_history.append({"role": "assistant", "content": text})
 
     try:
         subprocess.run([
